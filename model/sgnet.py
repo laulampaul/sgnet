@@ -186,6 +186,7 @@ class NET(nn.Module):
         self.pac = PacConvTranspose2d(64,64,kernel_size=5, stride=2, padding=2, output_padding=1)
         self.final = common.ConvBlock( dm_n_feats , 3, 3 , bias=True)
         self.norm = nn.InstanceNorm2d(1)
+        
     def density(self , x):
         x = torch.clamp(x**(1/2.2)*255,0.,255.).detach()
         b,w,h = x.shape
@@ -229,12 +230,12 @@ class NET(nn.Module):
         x = self.model_dm1(x)
         green_output = self.green(x1[:,1:3,:,:].detach())
         x =  x + self.model_dm2(x)
-        
-        #pdb.set_trace()
-        
         g_combine = self.greenup(green_output)
+        
+        # combine two branch using adaptive conv 
         x = self.pac(x,g_combine)
         x = self.final(x)
+        
         return sr_raw, x , green_output
 
 
