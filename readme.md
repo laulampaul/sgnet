@@ -13,6 +13,11 @@ Usually located at the very early stages of the computational photography pipeli
 ## Reference
 Our codes are based on TENet ( https://github.com/guochengqian/TENet ) and PACNet (https://github.com/NVlabs/pacnet).
 
+## TODO
+- The training model in DF2K dataset
+- adaptive edge loss
+- smooth loss
+
 ## Citation
 If you use this code, please cite:
 
