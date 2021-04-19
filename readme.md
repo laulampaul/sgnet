@@ -1,7 +1,7 @@
 
 This is the implementation of the paper joint demosaicing and denoising with self guidance.
 
-# joint demosaicing and denoising with self guidance(CVPR'20)
+# Joint demosaicing and denoising with self guidance (CVPR'20)
 
 Lin Liu, Xu Jia, Jianzhuang Liu, Qi Tian
 
